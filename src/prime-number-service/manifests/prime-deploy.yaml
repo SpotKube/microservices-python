@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prime
+  labels:
+    app: prime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prime
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: prime
+    spec:
+      containers:
+        - name: prime
+          image: kavindasr/prime-app:latest
+          resources:
+            limits:
+              cpu: 300m
+              memory: 200Mi
+          ports:
+            - containerPort: 9000
+          
