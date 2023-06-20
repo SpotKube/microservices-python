@@ -24,8 +24,8 @@ spec:
           image: kavindasr/prime-app:latest
           resources:
             limits:
-              cpu: 300m
-              memory: 200Mi
+              cpu: 500m
+              memory: 600Mi
           ports:
             - containerPort: 9000
           
